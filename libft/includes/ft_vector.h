@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cheker.h                                           :+:      :+:    :+:   */
+/*   ft_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/23 16:30:01 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/25 12:21:32 by kdavis           ###   ########.fr       */
+/*   Created: 2017/01/25 12:16:20 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/25 12:20:04 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef FT_VECTOR_H
+# define FT_VECTOR_H
 
-# include <ft_vector.h>
+# include <string.h>
 
-typedef			s_commands
+typedef struct	s_i8vec
 {
-	const char	cmd[3];
-	void		(*swap)(t_i32vec *, t_i32vec *);
-}				t_commands
+	char		*vec;
+	size_t		len;
+	size_t		size;
+}				t_i8vec;
 
-int ch_cleanup(int erno, void **a1, void **a2, void **a3)
+typedef struct	s_i32vec
+{
+	int			*vec;
+	size_t		len;
+	size_t		size;
+}				t_i32vec;
+
+typedef struct	s_i64vec
+{
+	long long	*vec;
+	size_t		len;
+	size_t		size;
+}				t_i64vec;
+
 #endif

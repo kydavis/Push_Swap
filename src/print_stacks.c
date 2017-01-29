@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_stacks.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/27 13:49:17 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/27 14:52:24 by kdavis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <push_swap.h>
+#include <libft.h>
+
+void	print_stack(t_stacks *stack)
+{
+	int		*a;
+	int		*b;
+	int		i;
+
+	a = (int*)stack->a.arr;
+	b = (int*)stack->b.arr;
+	ft_printf("a.len:%d b.len:%d\n",stack->a.len, stack->b.len);
+	i = (stack->a.len > stack->b.len ? stack->a.len : stack->b.len) - 1;
+	while (i >= 0)
+	{
+		if (i > (int)(stack->b.len - 1))
+			ft_printf("%4d %4.d\n", a[i], 0);
+		else if (i > (int)(stack->a.len - 1))
+			ft_printf("%4.d %4d\n", 0, b[i]);
+		else
+			ft_printf("%4d %4d\n", a[i], b[i]);
+		i--;
+	}
+	ft_printf("%4c %4c\n", '-', '-');
+	ft_printf("%4c %4c\n", 'a', 'b');
+}

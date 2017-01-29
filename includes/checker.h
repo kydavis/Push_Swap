@@ -6,20 +6,16 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:30:01 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/25 12:21:32 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/01/26 17:18:08 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include <ft_vector.h>
+# include <push_swap.h>
 
-typedef			s_commands
-{
-	const char	cmd[3];
-	void		(*swap)(t_i32vec *, t_i32vec *);
-}				t_commands
+int	checker(t_stacks *stack, t_commands *clst, int argc, char **argv);
+int	process_instructions(t_stacks *stack, t_commands *clst);
 
-int ch_cleanup(int erno, void **a1, void **a2, void **a3)
 #endif

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 12:16:20 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/25 12:20:04 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/01/25 16:48:59 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 # define FT_VECTOR_H
 
 # include <string.h>
+# include <stdint.h>
 
-typedef struct	s_i8vec
+/*
+** structure: s_vec
+** void	*arr = array of elements
+** size_t len = Current number of elements in array
+** size_t total = Total number of elements an array can hald
+** uint8_t size = Size in bytes of each element in the array
+*/
+
+typedef struct	s_vec
 {
-	char		*vec;
+	void		*arr;
 	size_t		len;
-	size_t		size;
-}				t_i8vec;
+	size_t		total;
+	uint8_t		size;
+}				t_vec;
 
-typedef struct	s_i32vec
-{
-	int			*vec;
-	size_t		len;
-	size_t		size;
-}				t_i32vec;
-
-typedef struct	s_i64vec
-{
-	long long	*vec;
-	size_t		len;
-	size_t		size;
-}				t_i64vec;
-
+int				ft_initialize_vec(t_vec *vec, uint8_t sz, size_t t, size_t len);
+int				ft_grow_vec(t_vec *self, size_t requested_bytes);
 #endif

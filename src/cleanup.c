@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fsplcount.c                                     :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 12:29:32 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/28 18:54:31 by kdavis           ###   ########.fr       */
+/*   Created: 2017/01/26 13:21:19 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/28 19:40:33 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <push_swap.h>
+#include <libft.h>
 
 /*
-** Counts the number of chunks delimited by the characters specified by function
-**	dchar.
+** cleanup is responsible for freeing all allocations made and returning the
+** result to main.
 */
 
-unsigned int		ft_strfcount(const char *s, int (*dchar)(int))
+int	cleanup(int ret, t_vec *a, t_vec *b, char **argv)
 {
-	unsigned int	word_count;
+	size_t	i;
 
-	word_count = 0;
-	while (*s)
+	if (a && a->arr)
+		ft_memdel(&a->arr);
+	if (b && b->arr)
+		ft_memdel(&b->arr);
+	i = 0;
+	if (argv)
 	{
-		while (dchar(*s) && *s)
-			s++;
-		while (!(dchar(*s)) && *s)
-			s++;
-		word_count++;
+		while (argv[i])
+			ft_memdel((void*)&argv[i++]);
+		ft_memdel((void*)&argv);
 	}
-	if (dchar(*(s - 1)))
-		word_count--;
-	return (word_count);
+	return (ret);
 }

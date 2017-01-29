@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fsplcount.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 12:29:32 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/28 18:54:31 by kdavis           ###   ########.fr       */
+/*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/28 16:19:39 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <push_swap.h>
+#include <libft.h>
 
-/*
-** Counts the number of chunks delimited by the characters specified by function
-**	dchar.
-*/
-
-unsigned int		ft_strfcount(const char *s, int (*dchar)(int))
+int	main(int argc, char **argv)
 {
-	unsigned int	word_count;
+	t_commands	cmd[11];
+	t_stacks	stack;
+	int			ret;
 
-	word_count = 0;
-	while (*s)
-	{
-		while (dchar(*s) && *s)
-			s++;
-		while (!(dchar(*s)) && *s)
-			s++;
-		word_count++;
-	}
-	if (dchar(*(s - 1)))
-		word_count--;
-	return (word_count);
+	if (argc < 2)
+		return (0);
+	ft_bzero((void*)&stack, sizeof(stack));
 }

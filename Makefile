@@ -6,7 +6,7 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 14:01:22 by kdavis            #+#    #+#              #
-#    Updated: 2017/01/23 16:31:28 by kdavis           ###   ########.fr        #
+#    Updated: 2017/01/27 14:09:48 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ MAKE		=make
 
 PUSH_SWAP	=
 
-CHECKER		=
+CHECKER		=main.c checker.c process_instructions.c
 
-FILENAMES	=
+FILENAMES	=initialize_commands.c swap_commands.c push_commands.c cleanup.c
+FILENAMES	+=rotate_commands.c reverse_rotate_commands.c load_stack.c
+FILENAMES	+=print_stacks.c
 
 SRCDIR		= src/
 IDIR		= includes/
@@ -38,7 +40,7 @@ CC			=gcc
 
 .PHONY:	all clean fclean re
 
-all: $(NAME) $(BINARY1)
+all: $(BINARY1) $(NAME)
 
 $(NAME): $(LIB).a $(PSRC)
 	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(PSRC) -o $@

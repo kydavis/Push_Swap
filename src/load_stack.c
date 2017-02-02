@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:48:14 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/28 20:15:31 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/01 15:54:51 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int			load_data(t_stacks *stack, int argc, char **argv)
 		return (cleanup(0, &stack->a, &stack->b, altv));
 	if (!(ft_initialize_vec(&stack->b, 4, argc, 0)))
 		return (cleanup(0, &stack->a, &stack->b, altv));
-	if (!(load_stack(&stack->a, (altv ? altv : argv))))
-		return (cleanup(0, &stack->a, &stack->b, altv));
+	if (argv)
+		if (!(load_stack(&stack->a, (altv ? altv : argv))))
+			return (cleanup(0, &stack->a, &stack->b, altv));
 	return (cleanup(1, NULL, NULL, altv));
 }

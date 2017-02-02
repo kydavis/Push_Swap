@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   execute_command.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 11:46:08 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 11:18:41 by kdavis           ###   ########.fr       */
+/*   Created: 2017/01/30 16:22:39 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/30 16:26:56 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 #include <libft.h>
 
-int			checker(t_stacks *stack, t_commands *clst, int argc, char **argv)
+void	execute_command(t_cmdlst *clst, t_stacks *stack, int command)
 {
-	int		ret;
-
-	if (!(load_data(stack, argc, argv)))
-		return (-1);
-	if (!(process_instructions(stack, clst)))
-		return (cleanup(-1, &stack->a, &stack->b, NULL));
-	ret = check_stack(&stack->a);
-	return (cleanup(ret, &stack->a, &stack->b, NULL));
+	if (command == NOP)
+		return ;
+	clst->cmd[command].swap(&A, &B);
+	ft_putendl(clst->cmd[command].name);
+	clst->count++;
 }

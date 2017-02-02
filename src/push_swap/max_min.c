@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   max_min.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 11:46:08 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 11:18:41 by kdavis           ###   ########.fr       */
+/*   Created: 2017/01/30 14:25:17 by kdavis            #+#    #+#             */
+/*   Updated: 2017/01/30 14:29:05 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
-#include <libft.h>
-
-int			checker(t_stacks *stack, t_commands *clst, int argc, char **argv)
+int	ps_max(int front, int middle, int end)
 {
-	int		ret;
+	if (front > middle && front > end)
+		return (front);
+	else if (middle > end)
+		return (middle);
+	return (end);
+}
 
-	if (!(load_data(stack, argc, argv)))
-		return (-1);
-	if (!(process_instructions(stack, clst)))
-		return (cleanup(-1, &stack->a, &stack->b, NULL));
-	ret = check_stack(&stack->a);
-	return (cleanup(ret, &stack->a, &stack->b, NULL));
+int	ps_min(int front, int middle, int end)
+{
+	if (front < middle && front < end)
+		return (front);
+	else if (middle < end)
+		return (middle);
+	return (end);
 }

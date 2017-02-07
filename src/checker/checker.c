@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:46:08 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 11:18:41 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/05 14:09:00 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int			checker(t_stacks *stack, t_commands *clst, int argc, char **argv)
 		return (-1);
 	if (!(process_instructions(stack, clst)))
 		return (cleanup(-1, &stack->a, &stack->b, NULL));
-	ret = check_stack(&stack->a);
+	ret = check_stack(&stack->a, 0, A.total - 1, 0);
 	return (cleanup(ret, &stack->a, &stack->b, NULL));
 }

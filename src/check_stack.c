@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 11:17:06 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 11:18:37 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/05 15:03:07 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,26 @@
 ** it went through all of the instructions.
 */
 
-int	check_stack(t_vec *a)
+int	check_stack(t_vec *a, size_t start, size_t end, int sflag)
 {
-	int	i;
+	size_t	i;
+	size_t	limit;
 	int	*array;
 
-	i = a->len - 1;
+	i = end;
+	limit = start + 1;
 	array = (int*)a->arr;
-	while (i >= 1)
+	while (i >= limit)
 	{
-		if (array[i] > array[i - 1])
-			return (0);
+/*		ft_printf("index:%d, value:%d : indexL%d, value:%d sflag:%d\n",
+				i, array[i], i - 1, array[i - 1], sflag);*/
+		if (sflag == FALSE && array[i] >= array[i - 1])
+			return (FALSE);
+/*		else if (sflag == TRUE && array[i] <= array[i - 1])
+			return (FALSE);*/
 		i -= 1;
 	}
-	return (1);
+	return (TRUE);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:16:37 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/27 14:46:50 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/01 19:52:26 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,21 @@ void	ps_r(t_vec *a)
 void	ps_ra(t_vec *a, t_vec *b)
 {
 	(void)b;
-	ps_r(a);
+	if (a->len > 1)
+		ps_r(a);
 }
 
 void	ps_rb(t_vec *a, t_vec *b)
 {
 	(void)a;
-	ps_r(b);
+	if (b->len > 1)
+		ps_r(b);
 }
 
 void	ps_rr(t_vec *a, t_vec *b)
 {
+	if (a->len < 2 || b->len < 2)
+		return ;
 	ps_r(a);
 	ps_r(b);
 }

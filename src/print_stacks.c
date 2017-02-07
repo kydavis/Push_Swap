@@ -6,18 +6,20 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:49:17 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/27 14:52:24 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/04 19:23:55 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
+#include <unistd.h>
 
 void	print_stack(t_stacks *stack)
 {
 	int		*a;
 	int		*b;
 	int		i;
+	char	c;
 
 	a = (int*)stack->a.arr;
 	b = (int*)stack->b.arr;
@@ -35,4 +37,5 @@ void	print_stack(t_stacks *stack)
 	}
 	ft_printf("%4c %4c\n", '-', '-');
 	ft_printf("%4c %4c\n", 'a', 'b');
+	read(0, &c, 1);
 }

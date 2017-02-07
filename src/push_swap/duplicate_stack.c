@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 11:33:15 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/01 11:55:50 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/02 14:05:25 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ t_stacks	*duplicate_stack(t_stacks *src)
 
 	if (!(ret = (t_stacks*)ft_memalloc(sizeof(t_stacks))))
 		return (NULL);
-	if (!(ft_initialize_vec(&ret->a, 4, src->a.total, src->a.len)))
+	if (!(ft_initialize_vec(&ret->a, src->a.size, src->a.total, src->a.len)))
 	{
 		ft_memdel((void*)&ret);
 		return (NULL);
 	}
-	if (!(ft_initialize_vec(&ret->b, 4, src->b.total, src->b.len)))
+	if (!(ft_initialize_vec(&ret->b, src->b.size, src->b.total, src->b.len)))
 	{
 		ft_memdel((void*)&ret->a);
 		ft_memdel((void*)&ret);

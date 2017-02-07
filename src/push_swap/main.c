@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/01 16:17:04 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/06 12:01:03 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*
 ** normalize_stack goes through the array and changes the values in the stack
-** to correspond with their relative order to each other.
+** to correspond with their relative order to each other. Currently n^2.
 */
 
 static void	normalize_stack(t_stacks *raw, t_stacks *working)
@@ -35,6 +35,7 @@ static void	normalize_stack(t_stacks *raw, t_stacks *working)
 				((int*)working->a.arr)[i] += 1;
 			j++;
 		}
+/*		((int*)working->a.arr)[i] += 1; Normalize array 1 - n*/
 		i++;
 	}
 }
@@ -56,7 +57,11 @@ int	main(int argc, char **argv)
 		return (cleanup(-1, &raw_stack.a, &raw_stack.b, NULL));
 	}
 	normalize_stack(&raw_stack, &working_stack);
-	sort(&working_stack, &clst);
+/*	ft_printf("Score before sort:%lu\n", stack_score(&working_stack));*/
+	quick(&working_stack, &clst, working_stack.a.len - 1, 0);
+/*	ft_printf("Score after sort:%lu\n", stack_score(&working_stack));*/
+	ft_printf("Number of commands:%d", clst.count);
 	print_stack(&working_stack);
-	return (0);
+	cleanup(0, &raw_stack.a, &raw_stack.b, NULL);
+	return (cleanup(0, &working_stack.a, &working_stack.b, NULL));
 }

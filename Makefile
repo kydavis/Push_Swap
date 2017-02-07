@@ -6,7 +6,7 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 14:01:22 by kdavis            #+#    #+#              #
-#    Updated: 2017/01/27 14:09:48 by kdavis           ###   ########.fr        #
+#    Updated: 2017/02/05 13:27:01 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ BINARY1		=checker
 
 MAKE		=make
 
-PUSH_SWAP	=
+PUSH_SWAP	= main.c execute_command.c
+PUSH_SWAP	+= quick_sort.c #sorting.c
+PUSH_SWAP	+= max_min.c #greedy.c duplicate_stack.c bottomup_merge.c
 
 CHECKER		=main.c checker.c process_instructions.c
 
 FILENAMES	=initialize_commands.c swap_commands.c push_commands.c cleanup.c
 FILENAMES	+=rotate_commands.c reverse_rotate_commands.c load_stack.c
-FILENAMES	+=print_stacks.c
+FILENAMES	+=print_stacks.c check_stack.c
 
 SRCDIR		= src/
 IDIR		= includes/
@@ -33,22 +35,22 @@ CSRC		=$(SRC) $(addprefix $(SRCDIR)$(BINARY1)/, $(CHECKER))
 LIB			=libft
 
 IFLAGS		=-I $(IDIR) -I $(LIB)/$(IDIR)
-CFLAGS		=-Wall -Werror -Wextra
+CFLAGS		=-Wall -Werror -Wextra -fsanitize=address
 LFLAGS		=-L $(LIB) -lft
 
 CC			=gcc
 
 .PHONY:	all clean fclean re
 
-all: $(BINARY1) $(NAME)
+all: $(LIB)/$(LIB).a $(BINARY1) $(NAME)
 
-$(NAME): $(LIB).a $(PSRC)
+$(NAME): $(PSRC)
 	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(PSRC) -o $@
 
-$(BINARY1): $(LIB).a $(CSRC)
+$(BINARY1): $(CSRC)
 	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(CSRC) -o $@
 
-$(LIB).a:
+$(LIB)/$(LIB).a:
 	$(MAKE) -C $(LIB)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:37:20 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 13:44:07 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/02 16:17:17 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@
 
 void	initialize_commands(t_commands *list)
 {
-	ft_strncpy(list[0].name, "sa", sizeof(list[0].name));
-	ft_strncpy(list[1].name, "sb", sizeof(list[1].name));
-	ft_strncpy(list[2].name, "ss", sizeof(list[2].name));
-	ft_strncpy(list[3].name, "pa", sizeof(list[3].name));
-	ft_strncpy(list[4].name, "pb", sizeof(list[4].name));
-	ft_strncpy(list[5].name, "ra", sizeof(list[5].name));
-	ft_strncpy(list[6].name, "rb", sizeof(list[6].name));
-	ft_strncpy(list[7].name, "rr", sizeof(list[7].name));
-	ft_strncpy(list[8].name, "rra", sizeof(list[8].name));
-	ft_strncpy(list[9].name, "rrb", sizeof(list[9].name));
-	ft_strncpy(list[10].name, "rrr", sizeof(list[10].name));
-	list[0].swap = ps_sa;
-	list[1].swap = ps_sb;
-	list[2].swap = ps_ss;
-	list[3].swap = ps_pa;
-	list[4].swap = ps_pb;
-	list[5].swap = ps_ra;
-	list[6].swap = ps_rb;
-	list[7].swap = ps_rr;
-	list[8].swap = ps_rra;
-	list[9].swap = ps_rrb;
-	list[10].swap = ps_rrr;
+	ft_strncpy(list[SA].name, "sa", sizeof(list[SA].name));
+	ft_strncpy(list[SB].name, "sb", sizeof(list[SB].name));
+	ft_strncpy(list[SS].name, "ss", sizeof(list[SS].name));
+	ft_strncpy(list[PA].name, "pa", sizeof(list[PA].name));
+	ft_strncpy(list[PB].name, "pb", sizeof(list[PB].name));
+	ft_strncpy(list[RA].name, "ra", sizeof(list[RA].name));
+	ft_strncpy(list[RB].name, "rb", sizeof(list[RB].name));
+	ft_strncpy(list[RR].name, "rr", sizeof(list[RR].name));
+	ft_strncpy(list[RRA].name, "rra", sizeof(list[RRA].name));
+	ft_strncpy(list[RRB].name, "rrb", sizeof(list[RRB].name));
+	ft_strncpy(list[RRR].name, "rrr", sizeof(list[RRR].name));
+	list[SA].swap = ps_sa;
+	list[SB].swap = ps_sb;
+	list[SS].swap = ps_ss;
+	list[PA].swap = ps_pa;
+	list[PB].swap = ps_pb;
+	list[RA].swap = ps_ra;
+	list[RB].swap = ps_rb;
+	list[RR].swap = ps_rr;
+	list[RRA].swap = ps_rra;
+	list[RRB].swap = ps_rrb;
+	list[RRR].swap = ps_rrr;
 }

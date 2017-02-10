@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:17:11 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/28 19:05:47 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/07 11:08:10 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int			process_instructions(t_stacks *stack, t_commands *clst)
 			return (0);
 		if (!(command_dispatcher(stack, clst, command)))
 			return (0);
-		ft_printf("\ncommand:%s\n", command);
-		print_stack(stack);///
+/*		ft_printf("\ncommand:%s\n", command);
+		print_stack(stack);*/
 		ft_memdel((void*)&command);
 	}
 	return (1);

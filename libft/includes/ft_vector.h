@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 12:16:20 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/25 16:48:59 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/08 15:28:10 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 # include <stdint.h>
 
 /*
-** structure: s_vec
-** void	*arr = array of elements
-** size_t len = Current number of elements in array
-** size_t total = Total number of elements an array can hald
-** uint8_t size = Size in bytes of each element in the array
+** arr = array of elements
+** len = current number of elements in array
+** total = total number of elements the array can hold
+** size = the size of each element in bytes.
 */
 
 typedef struct	s_vec

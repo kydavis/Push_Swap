@@ -6,7 +6,7 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 14:01:22 by kdavis            #+#    #+#              #
-#    Updated: 2017/02/05 13:27:01 by kdavis           ###   ########.fr        #
+#    Updated: 2017/02/09 16:09:27 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ BINARY1		=checker
 MAKE		=make
 
 PUSH_SWAP	= main.c execute_command.c
-PUSH_SWAP	+= quick_sort.c #sorting.c
+PUSH_SWAP	+= modified_insertion.c #sorting.c quick_sort.c
 PUSH_SWAP	+= max_min.c #greedy.c duplicate_stack.c bottomup_merge.c
 
 CHECKER		=main.c checker.c process_instructions.c

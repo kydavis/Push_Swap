@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:48:14 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/01 15:54:51 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/07 11:02:40 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	load_stack(t_vec *a, char **argv)
 	while (i >= 0)
 	{
 		j = 0;
+		if (argv[i][j] == '-')
+			j++;
 		while (argv[i][j])
 			if (!ft_isdigit(argv[i][j++]))
 				return (0);

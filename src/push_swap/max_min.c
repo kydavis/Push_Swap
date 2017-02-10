@@ -6,20 +6,24 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:25:17 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/02 15:20:57 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/09 16:59:56 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ps_max(int front, int middle, int end)
+int	ps_max(int n1, int n2, int n3)
 {
-	if (front > middle && front > end)
-		return (front);
-	else if (middle > end)
-		return (middle);
-	return (end);
+	if (n1 > n2 && n1 > n3)
+		return (n1);
+	else if (n2 > n3)
+		return (n2);
+	return (n3);
 }
 
-unsigned int	ps_min(unsigned int n1, unsigned int n2)
+int	ps_min(int n1, int n2, int n3)
 {
-	return (n1 < n2 ? n1 : n2);
+	if (n1 < n2 && n1 < n3)
+		return (n1);
+	else if (n2 < n3)
+		return (n2);
+	return (n3);
 }

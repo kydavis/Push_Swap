@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:01:53 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/06 12:03:20 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/09 16:59:09 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@
 # define RRA 8
 # define RRB 9
 # define RRR 10
-# define NOP 11
 
-# define FT_MIN(x,y) (x < y ? x : y)
 
 typedef	struct	s_commands
 {
@@ -53,8 +51,27 @@ typedef struct	s_stacks
 	t_vec		b;
 }				t_stacks;
 
+typedef struct	s_stackinfo
+{
+	size_t		max_ai;
+	size_t		min_ai;
+	int			max_a;
+	int			min_a;
+}				t_stackinfo;
+
+typedef struct		s_rotationcount
+{
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+}					t_rotcnt;
+
 int				load_data(t_stacks *stack, int argc, char **argv);
-void			execute_command(t_cmdlst *clst, t_stacks *stack, int command);
+void			execute_command(t_cmdlst *clst, t_stacks *stack,
+					t_stackinfo *si, int command);
 t_stacks		*duplicate_stack(t_stacks *src);
 int				check_stack(t_vec *a, size_t start, size_t end, int sflag);
 void			print_stack(t_stacks *stack);
@@ -63,9 +80,10 @@ void			sort(t_stacks *stack, t_cmdlst *clst);///
 void			greedy_sort(t_stacks *stack, t_cmdlst *clst);///
 void			bottom_merge_sort(t_commands *clst, t_stacks *stack);///
 unsigned int	stack_score(t_stacks *stack);///
+void			insertion(t_stacks *stack, t_cmdlst *clst);///
 void			quick(t_stacks *stack, t_cmdlst *clst, int top, int bottom);///
-int				ps_max(int front, int middle, int end);
-unsigned int	ps_min(unsigned int n1, unsigned int n2);
+int				ps_max(int n1, int n2, int n3);
+int				ps_min(int n1, int n2, int n3);
 
 /*
 ** command functions:

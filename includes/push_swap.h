@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:01:53 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/14 23:38:03 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 00:29:28 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef	struct	s_commands
 typedef	struct	s_cmdlst
 {
 	t_commands	cmd[11];
-	int			count[3];
+	int			count;
 }				t_cmdlst;
 
 typedef struct	s_stacks
@@ -86,7 +86,7 @@ void			detect_swaps(t_cmdlst *clst, t_stacks *stack, t_stackinfo *si);///
 void			quick(t_stacks *stack, t_cmdlst *clst, int top, int bottom);///
 int				ps_max(int n1, int n2, int n3);
 int				ps_min(int n1, int n2, int n3);
-void			insertion(t_stacks *stack, t_cmdlst *clst, int flag);
+void			insertion(t_stacks *stack, t_cmdlst *clst);
 
 /*
 ** command functions:

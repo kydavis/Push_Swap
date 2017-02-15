@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/09 17:05:34 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 00:32:10 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 /*	quick(&working_stack, &clst, working_stack.a.len - 1, 0);*/
 /*	ft_printf("Score after sort:%lu\n", stack_score(&working_stack));*/
 	ft_printf("Number of commands:%d", clst.count);
-	print_stack(&raw_stack);
+/*	print_stack(&raw_stack);*/
 	return (cleanup(0, &raw_stack.a, &raw_stack.b, NULL));
 /*	return (cleanup(0, &working_stack.a, &working_stack.b, NULL));*/
 }

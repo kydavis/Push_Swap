@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:48:41 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/14 23:46:44 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 00:27:56 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,18 +148,18 @@ static void	sort_three_a(t_stacks *stack, t_stackinfo *si, t_cmdlst *clst)
 }
 
 #include <unistd.h>
-void	insertion(t_stacks *stack, t_cmdlst *clst, int flag)
+void	insertion(t_stacks *stack, t_cmdlst *clst)
 {
 	t_stackinfo	si;
 	t_rotcnt	count;
 
-	si.flag = flag;
+/*	si.flag = flag;*/
 	while (A.len > 3)
 	{
-		if (flag == 1 || flag == 4)
+/*		if (flag == 1 || flag == 4)
 			detect_swaps(clst, stack, &si);
 		else if (flag == 2 || flag == 5)
-			sort_three_a(stack, &si, clst);
+			sort_three_a(stack, &si, clst);*/
 		execute_command(clst, stack, &si, PB);
 	}
 	sort_three_a(stack, &si, clst);

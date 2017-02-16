@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:01:53 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/15 00:29:28 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 22:10:32 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef	struct	s_cmdlst
 {
 	t_commands	cmd[11];
 	int			count;
+	int			print;
 }				t_cmdlst;
 
 typedef struct	s_stacks
@@ -53,23 +54,23 @@ typedef struct	s_stacks
 
 typedef struct	s_stackinfo
 {
-	size_t		max_ai;
-	size_t		min_ai;
-	int			max_a;
-	int			min_a;
-	int			flag;
+	size_t		max_i;
+	size_t		min_i;
+	int			max;
+	int			min;
+	int			stflag;
 }				t_stackinfo;
 
-typedef struct		s_rotationcount
+typedef struct	s_rotationcount
 {
-	int				ra;
-	int				rb;
-	int				rr;
-	int				rra;
-	int				rrb;
-	int				rrr;
-	int				ttl_rot;
-}					t_rotcnt;
+	int			ra;
+	int			rb;
+	int			rr;
+	int			rra;
+	int			rrb;
+	int			rrr;
+	int			ttl_rot;
+}				t_rotcnt;
 
 int				load_data(t_stacks *stack, int argc, char **argv);
 void			execute_command(t_cmdlst *clst, t_stacks *stack,
@@ -78,16 +79,14 @@ t_stacks		*duplicate_stack(t_stacks *src);
 int				check_stack(t_vec *a, size_t start, size_t end, int sflag);
 void			print_stack(t_stacks *stack);
 
-void			sort(t_stacks *stack, t_cmdlst *clst);///
-void			greedy_sort(t_stacks *stack, t_cmdlst *clst);///
-void			bottom_merge_sort(t_commands *clst, t_stacks *stack);///
-unsigned int	stack_score(t_stacks *stack);///
-void			detect_swaps(t_cmdlst *clst, t_stacks *stack, t_stackinfo *si);///
-void			quick(t_stacks *stack, t_cmdlst *clst, int top, int bottom);///
 int				ps_max(int n1, int n2, int n3);
 int				ps_min(int n1, int n2, int n3);
-void			insertion(t_stacks *stack, t_cmdlst *clst);
 
+void			insertion(t_stacks *stack, t_cmdlst *clst, size_t push_over);
+int				choose_insertion(t_stacks *stack,
+				t_stackinfo *si, t_rotcnt *cnt);
+void			rotate_stacks(t_stacks *stack, t_cmdlst *clst,
+				t_rotcnt *rot, t_stackinfo *si);
 /*
 ** command functions:
 */

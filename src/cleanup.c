@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:21:19 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/28 19:40:33 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 22:03:48 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int	cleanup(int ret, t_vec *a, t_vec *b, char **argv)
 			ft_memdel((void*)&argv[i++]);
 		ft_memdel((void*)&argv);
 	}
+	if (ret < 0)
+		ft_putendl_fd("Error", 2);
 	return (ret);
 }

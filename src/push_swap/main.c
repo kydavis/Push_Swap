@@ -6,64 +6,52 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/15 00:32:10 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/15 22:22:38 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 
-/*
-** normalize_stack goes through the array and changes the values in the stack
-** to correspond with their relative order to each other. Currently n^2.
-*/
-
-/*static void	normalize_stack(t_stacks *raw, t_stacks *working)
-{
-	size_t	i;
-	size_t	j;
-	size_t	limit;
-
-	limit = raw->a.len - 1;
-	i = 0;
-	while (i <= limit)
-	{
-		j = 0;
-		while (j <= limit)
-		{
-			if (((int*)raw->a.arr)[i] > ((int*)raw->a.arr)[j])
-				((unsigned int*)working->a.arr)[i] += 1;
-			j++;
-		}
-		((int*)working->a.arr)[i] += 1; Normalize array 1 - n
-		i++;
-	}
-}*/
-
 int	main(int argc, char **argv)
 {
 	t_cmdlst	clst;
 	t_stacks	raw_stack;
-/*	t_stacks	working_stack;*/
+	size_t		i;
+	int			min_count;
+	int			min_i;
 
 	ft_bzero((void*)&raw_stack, sizeof(raw_stack));
-/*	ft_bzero((void*)&working_stack, sizeof(working_stack));*/
 	initialize_commands(clst.cmd);
-	clst.count = 0;
+	clst.print = 0;
+	i = 4;
 	if (argc < 2 || !(load_data(&raw_stack, argc - 1, argv + 1)))
-/*			!(load_data(&working_stack, argc - 1, NULL)))*/
-	{
-		ft_putendl_fd("Error", 2);
 		return (cleanup(-1, &raw_stack.a, &raw_stack.b, NULL));
+	if ((check_stack(&raw_stack.a, 0, raw_stack.a.len - 1, 0)))
+		return (cleanup(0, &raw_stack.a, &raw_stack.b, NULL));
+	min_count = FT_S32_MAX;
+	min_i = 4;
+	while (i < raw_stack.a.total / 2)
+	{
+		clst.count = 0;
+		if (!(load_data(&raw_stack, argc - 1, argv + 1)))
+			return (cleanup(-1, &raw_stack.a, &raw_stack.b, NULL));
+		insertion(&raw_stack, &clst, i);
+		cleanup(0, &raw_stack.a, &raw_stack.b, NULL);
+		if (clst.count < min_count)
+		{
+			min_count = clst.count;
+			min_i = i;
+		}
+/*		ft_printf("i:%d, Number of commands:%d\n", i, clst.count);*/
+		i *= 2;
 	}
-/*	normalize_stack(&raw_stack, &working_stack);*/
-/*	ft_printf("Score before sort:%lu\n", stack_score(&working_stack));*/
-	if (!(check_stack(&raw_stack.a, 0, raw_stack.a.len - 1, 0)))
-		insertion(&raw_stack, &clst);
-/*	quick(&working_stack, &clst, working_stack.a.len - 1, 0);*/
-/*	ft_printf("Score after sort:%lu\n", stack_score(&working_stack));*/
-	ft_printf("Number of commands:%d", clst.count);
+	if (!(load_data(&raw_stack, argc - 1, argv + 1)))
+		return (cleanup(-1, &raw_stack.a, &raw_stack.b, NULL));
+	clst.print = 1;
+	clst.count = 0;
+	insertion(&raw_stack, &clst, min_i);
+/*	ft_printf("i:%d, Number of commands:%d\n", min_i, clst.count);*/
 /*	print_stack(&raw_stack);*/
 	return (cleanup(0, &raw_stack.a, &raw_stack.b, NULL));
-/*	return (cleanup(0, &working_stack.a, &working_stack.b, NULL));*/
 }

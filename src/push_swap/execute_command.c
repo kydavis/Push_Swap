@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 16:22:39 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/15 22:10:54 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/16 18:32:39 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,35 @@ static void	shift_min_max(t_stackinfo *si, t_vec *stack, int command, int sf)
 		si->min_i = (si->min_i == 0 ? stack->len : si->min_i) - 1;
 }
 
-void	execute_command(t_cmdlst *clst, t_stacks *stack,
+static int	append_command(t_cmdlst *clst, int command)
+{
+	size_t	cmnd_len;
+	char	*dst;
+
+	cmnd_len = ft_strlen(clst->cmd[command].name) + 1;
+	if (!(clst->result.arr))
+		if ((ft_initialize_vec(&clst->result, 1, 100, 0)) == FALSE)
+			return (FALSE);
+	if ((ft_grow_vec(&clst->result, clst->result.len + cmnd_len + 1)) == FALSE)
+		return (FALSE);
+	dst = (char*)(clst->result.arr + clst->result.len);
+	ft_strcpy(dst, clst->cmd[command].name);
+	dst[cmnd_len - 1] = '\n';
+	clst->result.len += cmnd_len;
+	return (TRUE);
+}
+
+int		execute_command(t_cmdlst *clst, t_stacks *stack,
 		t_stackinfo *si, int command)
 {
 	clst->cmd[command].swap(&A, &B);
 	if (clst->print)
-		ft_putendl(clst->cmd[command].name);
+		if ((append_command(clst, command)) == FALSE)
+			return (FALSE);
 	if (si->stflag == 0)
 		shift_min_max(si, &A, command, si->stflag);
 	else if (si->stflag == 1)
 		shift_min_max(si, &B, command, si->stflag);
 	clst->count++;
+	return (TRUE);
 }

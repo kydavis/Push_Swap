@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/28 11:08:38 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/04 14:56:28 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/16 15:37:52 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,10 @@ static ssize_t	read_line(t_list *lst, size_t o, char **line, ssize_t pflag)
 		{
 			pflag = (ssize_t)ft_strlen((char*)lst->content);
 			*line = ft_strndup((char *)lst->content, pflag);
-			if (**line)
+			ft_memdel(&lst->content);
+			if (**line && (lst->content = ft_memalloc(1)))
 				return (pflag);
-			if (!(*line))
-				return (-1);
-			return (0);
+			return (!(*line) ? -1 : 0);
 		}
 	}
 	return (pflag);

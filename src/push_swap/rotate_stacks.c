@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:04:42 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/15 15:31:21 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/16 18:10:53 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,26 @@
 ** Rotate_stacks executes all the rotation commands queded in the rotcnt struct
 */
 
-void	rotate_stacks(t_stacks *stack, t_cmdlst *clst, t_rotcnt *rot,
+int	rotate_stacks(t_stacks *stack, t_cmdlst *clst, t_rotcnt *rot,
 		t_stackinfo *si)
 {
 		while (rot->ra-- > 0)
-			execute_command(clst, stack, si, RA);
+			if ((execute_command(clst, stack, si, RA)) == FALSE)
+				return (FALSE);
 		while (rot->rb-- > 0)
-			execute_command(clst, stack, si, RB);
+			if ((execute_command(clst, stack, si, RB)) == FALSE)
+				return (FALSE);
 		while (rot->rr-- > 0)
-			execute_command(clst, stack, si, RR);
+			if ((execute_command(clst, stack, si, RR)) == FALSE)
+				return (FALSE);
 		while (rot->rra-- > 0)
-			execute_command(clst, stack, si, RRA);
+			if ((execute_command(clst, stack, si, RRA)) == FALSE)
+				return (FALSE);
 		while (rot->rrb-- > 0)
-			execute_command(clst, stack, si, RRB);
+			if ((execute_command(clst, stack, si, RRB)) == FALSE)
+				return (FALSE);
 		while (rot->rrr-- > 0)
-			execute_command(clst, stack, si, RRR);
+			if ((execute_command(clst, stack, si, RRR)) == FALSE)
+				return (FALSE);
+		return (TRUE);
 }

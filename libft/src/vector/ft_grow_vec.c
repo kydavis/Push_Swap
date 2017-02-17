@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 16:26:09 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/25 16:40:44 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/16 18:21:49 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_grow_vec(t_vec *self, size_t requested_bytes)
 		new_size = (requested_bytes > new_size ? requested_bytes : new_size);
 		if ((!(self->arr = ft_memreallocf(self->arr, new_size, byte_count))))
 			return (0);
-		self->total = byte_count / self->size;
+		self->total = new_size / self->size;
 	}
 	return (1);
 }

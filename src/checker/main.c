@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 12:29:23 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/30 11:26:23 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/16 15:34:47 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	ret = 0;
 	ft_bzero((void*)&stack, sizeof(stack));
 	initialize_commands(cmd);
 	if ((ret = checker(&stack, cmd, argc - 1, argv + 1)) == -1)

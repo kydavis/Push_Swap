@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:17:11 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/16 15:19:12 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:27:14 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			process_instructions(t_stacks *stack, t_commands *clst)
 {
 	char	*command;
 	int		erno;
-	int		i = 0;
 
 	while ((erno = get_next_line(0, &command)))
 	{
@@ -48,8 +47,6 @@ int			process_instructions(t_stacks *stack, t_commands *clst)
 			return (0);
 		if (!(command_dispatcher(stack, clst, command)))
 			return (0);
-		ft_printf("i:%d command:%s errno:%d\n", i++, command, erno);
-/*		print_stack(stack);*/
 		ft_memdel((void*)&command);
 	}
 	return (1);

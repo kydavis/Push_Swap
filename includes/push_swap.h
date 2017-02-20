@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:01:53 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/16 18:10:14 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 14:48:01 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 # define RRA 8
 # define RRB 9
 # define RRR 10
-
 
 typedef	struct	s_commands
 {
@@ -73,21 +72,33 @@ typedef struct	s_rotationcount
 	int			ttl_rot;
 }				t_rotcnt;
 
-int				load_data(t_stacks *stack, int argc, char **argv);
-int				execute_command(t_cmdlst *clst, t_stacks *stack,
-					t_stackinfo *si, int command);
-t_stacks		*duplicate_stack(t_stacks *src);
-int				check_stack(t_vec *a, size_t start, size_t end, int sflag);
 void			print_stack(t_stacks *stack);
+
+/*
+** Min max functions
+*/
 
 int				ps_max(int n1, int n2, int n3);
 int				ps_min(int n1, int n2, int n3);
+
+/*
+** Data loading and stack checking
+*/
+
+int				load_data(t_stacks *stack, int argc, char **argv);
+int				check_stack(t_vec *a, size_t start, size_t end, int sflag);
+
+/*
+** Push_swap sorting functions
+*/
 
 int				insertion(t_stacks *stack, t_cmdlst *clst, size_t push_over);
 int				choose_insertion(t_stacks *stack,
 				t_stackinfo *si, t_rotcnt *cnt);
 int				rotate_stacks(t_stacks *stack, t_cmdlst *clst,
 				t_rotcnt *rot, t_stackinfo *si);
+int				execute_command(t_cmdlst *clst, t_stacks *stack,
+					t_stackinfo *si, int command);
 /*
 ** command functions:
 */

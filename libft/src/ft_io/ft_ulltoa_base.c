@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 17:05:51 by kdavis            #+#    #+#             */
-/*   Updated: 2016/12/03 17:31:03 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:41:03 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 
 /*
-** Converts an unsigned long long into a character string from base 2-32. 
+** Converts an unsigned long long into a character string from base 2-32.
 ** If h is on then print capital characters for base is greater than 10.
 */
 

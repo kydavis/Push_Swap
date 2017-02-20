@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 18:29:34 by kdavis            #+#    #+#             */
-/*   Updated: 2016/12/03 19:12:06 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:37:47 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** not enough memory can be allocated.
 */
 
-void	*ft_memjoinf(void *s1, void *s2, size_t	n1, size_t n2)
+void	*ft_memjoinf(void *s1, void *s2, size_t n1, size_t n2)
 {
 	void	*result;
 

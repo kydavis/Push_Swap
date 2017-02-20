@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:32:46 by kdavis            #+#    #+#             */
-/*   Updated: 2016/11/28 09:58:28 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:41:48 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ wint_t	ft_putwchar_fd(wchar_t wc, int fd)
 {
 	char	bytes[4];
 	int		n_bytes;
-	
+
 	ft_bzero(bytes, 4);
 	if ((n_bytes = ft_wctomb(bytes, wc)) == -1)
 		return (WEOF);

@@ -6,20 +6,19 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 13:31:42 by kdavis            #+#    #+#             */
-/*   Updated: 2016/12/21 21:01:05 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:40:03 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_type.h>
 #include <ft_macro.h>
 
-
 /*
 ** Assign digit converts a char into the appropriate digit for a base conversion
 **	returns the number base if the character is invalid.
 */
 
-int		ft_chartoi(char c, int base)
+int					ft_chartoi(char c, int base)
 {
 	int	digit;
 
@@ -56,11 +55,11 @@ unsigned long long	ft_strd_ull_base(char **str, int base)
 ** ft_getll_base grabs the next number in str and assigns it to nbr.
 */
 
-int	ft_getll_base(char **str, long long *nbr)
+int					ft_getll_base(char **str, long long *nbr)
 {
-	unsigned long long result;
-	int	base;
-	int	neg;
+	unsigned long long	result;
+	int					base;
+	int					neg;
 
 	if (!(str))
 		return (0);

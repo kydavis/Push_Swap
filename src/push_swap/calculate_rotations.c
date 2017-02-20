@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:31:04 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/15 20:06:43 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:12:12 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static int	calculate_rotations(t_rotcnt *cnt, size_t ai, size_t bi,
 	cnt->rra = ai + 1;
 	cnt->rrb = bi + 1;
 	cnt->rrr = (cnt->rra < cnt->rrb ? cnt->rra : cnt->rrb);
-/*		ft_printf("tra:%d, trb:%d, trr:%d. trra:%d, trrb:%d, trrr:%d\n",
-				cnt->ra, cnt->rb, cnt->rr, cnt->rra, cnt->rrb, cnt->rrr);*/
 	cnt->ttl_rot = ps_min(cnt->ra + cnt->rrb, cnt->rb + cnt->rra,
 			cnt->ra + cnt->rb - cnt->rr);
 	if (cnt->ttl_rot > cnt->rra + cnt->rrb - cnt->rrr)
@@ -49,15 +47,15 @@ static int	calculate_rotations(t_rotcnt *cnt, size_t ai, size_t bi,
 }
 
 /*
-** rotation_count_a and rotation_count_b will calculate the position of the insertion
-** point for the given insert. They then use calculate rotation to caluclate the
-** mininum number of rotations needed to access both the insert and the insertion
-** position. Seperate functions because A and B should be sorted anti-parallel to each
-** other.
+** rotation_count_a and rotation_count_b will calculate the position of the
+** insertion point for the given insert. They then use calculate rotation to
+** caluclate the mininum number of rotations needed to access both the insert
+** and the insertion position. Seperate functions because A and B should be
+** sorted anti-parallel to each other.
 */
 
 static int	rotation_count_a(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt,
-		size_t insert_index)
+			size_t insert_index)
 {
 	size_t			i;
 	int				insert_value;
@@ -78,14 +76,12 @@ static int	rotation_count_a(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt,
 				i--;
 		}
 	}
-/*		ft_printf("insert:%d index:%d insert_position:%i\n", insert_value,
-				insert_index, i);*/
 	rot_count = calculate_rotations(cnt, i, insert_index, stack);
 	return (rot_count);
 }
 
 static int	rotation_count_b(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt,
-		size_t insert_index)
+			size_t insert_index)
 {
 	size_t			i;
 	int				insert_value;
@@ -106,8 +102,6 @@ static int	rotation_count_b(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt,
 				i--;
 		}
 	}
-/*		ft_printf("insert:%d index:%d insert_position:%i\n", insert_value,
-				insert_index, i);*/
 	rot_count = calculate_rotations(cnt, insert_index, i, stack);
 	return (rot_count);
 }
@@ -118,7 +112,8 @@ static int	rotation_count_b(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt,
 ** receiving stack.
 */
 
-int		choose_insertion(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt)
+int			choose_insertion(t_stacks *stack, t_stackinfo *si,
+		t_rotcnt *cnt)
 {
 	t_rotcnt	trot;
 	long long	i;
@@ -136,8 +131,6 @@ int		choose_insertion(t_stacks *stack, t_stackinfo *si, t_rotcnt *cnt)
 			temp_count = rotation_count_b(stack, si, &trot, i);
 		if (temp_count < ttl_rotations)
 		{
-/*		ft_printf("tra:%d, trb:%d, trr:%d. trra:%d, trrb:%d, trrr:%d, ttrot:%d, trot:%d\n",
-				trot.ra, trot.rb, trot.rr, trot.rra, trot.rrb, trot.rrr, ttl_rotations, temp_count);*/
 			ttl_rotations = temp_count;
 			ft_memmove((void*)cnt, (void*)&trot, sizeof(trot));
 		}

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:15:19 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/01 19:50:37 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:22:19 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ps_p(t_vec *va, t_vec *vb)
 	a = (int*)va->arr;
 	b = (int*)vb->arr;
 	a[va->len] = b[vb->len - 1];
-/*	((int*)a->arr)[a->len - 1] = ((int*)b->arr)[b->len];*/
 	va->len++;
 	vb->len--;
 }
@@ -48,4 +47,3 @@ void	ps_pb(t_vec *a, t_vec *b)
 	if (a->len != 0)
 		ps_p(b, a);
 }
-

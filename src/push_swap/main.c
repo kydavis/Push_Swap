@@ -6,25 +6,26 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/16 18:35:30 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:13:09 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 
-int	choose_remainder_size(t_stacks *stack, t_cmdlst *clst, int argc, char **argv)
+int	choose_remainder_size(t_stacks *stack, t_cmdlst *clst, int arc, char **arv)
 {
 	int	i;
 	int	min_count;
 	int	min_i;
 
 	i = 4;
+	min_i = 4;
 	min_count = FT_S32_MAX;
 	while (i < (int)(A.total / 2))
 	{
 		clst->count = 0;
-		if ((load_data(stack, argc, argv)) == FALSE)
+		if ((load_data(stack, arc, arv)) == FALSE)
 			return (cleanup(-1, &A, &B, NULL));
 		if ((insertion(stack, clst, i)) == FALSE)
 			return (cleanup(-1, &A, &B, NULL));

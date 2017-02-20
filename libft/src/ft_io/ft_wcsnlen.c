@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 15:45:49 by kdavis            #+#    #+#             */
-/*   Updated: 2016/11/27 18:14:22 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:40:47 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ size_t	ft_wcsnlen(const wchar_t *wcs, size_t n)
 		if ((current_char = ft_wctomb(temp, *wcs++)) == -1)
 			return ((size_t)-1);
 		if ((converted_char + current_char) > n)
-			break;
+			break ;
 		converted_char += current_char;
 	}
 	return (converted_char);
 }
-

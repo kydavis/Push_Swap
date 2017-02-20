@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:48:41 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/16 18:16:36 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:11:52 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ static int	sort_three(t_stacks *stack, t_stackinfo *si, t_cmdlst *clst)
 	if ((si->max_i == 2 && si->min_i == 0) || si->max_i == (si->min_i - 1))
 	{
 		if (B.len > 1 && ((int*)B.arr)[B.len - 1] > ((int*)B.arr)[B.len - 2])
-		{
-			if ((execute_command(clst, stack, si, SA)) == FALSE)
-				return (FALSE);
-		}
+			return ((execute_command(clst, stack, si, SA)) == FALSE ?
+					FALSE : TRUE);
 		else
-			if ((execute_command(clst, stack, si, SS)) == FALSE)
-				return (FALSE);
+			return ((execute_command(clst, stack, si, SS)) == FALSE ?
+					FALSE : TRUE);
 	}
 	return (TRUE);
 }
@@ -94,7 +92,7 @@ static int	push_a_to_b(t_stacks *stack, t_cmdlst *clst, size_t remainder,
 	return (TRUE);
 }
 
-int	insertion(t_stacks *stack, t_cmdlst *clst, size_t remainder)
+int			insertion(t_stacks *stack, t_cmdlst *clst, size_t remainder)
 {
 	t_stackinfo	si;
 	t_rotcnt	count;
@@ -118,7 +116,7 @@ int	insertion(t_stacks *stack, t_cmdlst *clst, size_t remainder)
 	else
 		last_rotation = RA;
 	while (!(check_stack(&A, 0, A.len - 1, 0)))
-			if ((execute_command(clst, stack, &si, last_rotation)) == FALSE)
-				return (FALSE);
+		if ((execute_command(clst, stack, &si, last_rotation)) == FALSE)
+			return (FALSE);
 	return (TRUE);
 }

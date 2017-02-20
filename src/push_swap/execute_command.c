@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 16:22:39 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/16 18:32:39 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 14:49:41 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static int	append_command(t_cmdlst *clst, int command)
 	return (TRUE);
 }
 
-int		execute_command(t_cmdlst *clst, t_stacks *stack,
-		t_stackinfo *si, int command)
+int			execute_command(t_cmdlst *clst, t_stacks *stack,
+			t_stackinfo *si, int command)
 {
 	clst->cmd[command].swap(&A, &B);
 	if (clst->print)

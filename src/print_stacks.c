@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:49:17 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/04 19:23:55 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:21:57 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_stack(t_stacks *stack)
 
 	a = (int*)stack->a.arr;
 	b = (int*)stack->b.arr;
-	ft_printf("a.len:%d b.len:%d\n",stack->a.len, stack->b.len);
+	ft_printf("a.len:%d b.len:%d\n", stack->a.len, stack->b.len);
 	i = (stack->a.len > stack->b.len ? stack->a.len : stack->b.len) - 1;
 	while (i >= 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 18:08:39 by kdavis            #+#    #+#             */
-/*   Updated: 2016/11/28 09:59:42 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/11 16:41:23 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t	ft_wcstombs(char *s, const wchar_t *wcs, size_t n)
 			while (++i < current_char)
 				s[i] = temp[i];
 		else
-			break;
+			break ;
 		s += current_char;
 		converted_char += current_char;
 	}

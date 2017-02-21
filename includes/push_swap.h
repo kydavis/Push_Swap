@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:01:53 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 19:39:32 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 19:50:33 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ typedef struct	s_rotationcount
 	int			rrr;
 	int			ttl_rot;
 }				t_rotcnt;
-
 
 /*
 ** Min max functions

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:46:08 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 19:14:31 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 19:53:34 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**load_instructions(void)
 {
 	t_vec	instructions;
 	char	**result;
-	ssize_t		ret;
+	ssize_t	ret;
 	char	buffer[BUFF_SIZE];
 
 	if (!(ft_initialize_vec(&instructions, 1, BUFF_SIZE, 0)))
@@ -40,7 +40,7 @@ char	**load_instructions(void)
 	return (result);
 }
 
-int	checker(t_stacks *stack, t_commands *clst, t_cflags *flags)
+int		checker(t_stacks *stack, t_commands *clst, t_cflags *flags)
 {
 	int		ret;
 	char	**commands;

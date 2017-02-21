@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 12:29:23 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 19:44:24 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 19:53:09 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	parse_flags(int arc, char **arv, t_cflags *flags)
 	flags->argv = arv + offset;
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_commands	cmd[11];
 	t_stacks	stack;

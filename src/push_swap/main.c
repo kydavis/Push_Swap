@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:10:57 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 15:13:09 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 21:04:35 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 		return (cleanup(-1, &raw_stack.a, &raw_stack.b, NULL));
 	if ((check_stack(&raw_stack.a, 0, raw_stack.a.len - 1, 0)))
 		return (cleanup(0, &raw_stack.a, &raw_stack.b, NULL));
+	cleanup(0, &raw_stack.a, &raw_stack.b, NULL);
 	remain_a = choose_remainder_size(&raw_stack, &clst, argc - 1, argv + 1);
 	if (remain_a < 0)
 		return (-1);

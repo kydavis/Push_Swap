@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:17:11 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 15:27:14 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 19:38:24 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 ** invalid instruction given.
 */
 
-static int	command_dispatcher(t_stacks *stack, t_commands *clst, char *cmd)
+static int	command_dispatcher(t_stacks *stack, t_commands *clst, char *cmd,
+		t_cflags *flags)
 {
 	int	i;
 
@@ -29,6 +30,9 @@ static int	command_dispatcher(t_stacks *stack, t_commands *clst, char *cmd)
 		if (!(ft_strcmp(clst[i].name, cmd)))
 		{
 			clst[i].swap(&stack->a, &stack->b);
+			flags->count++;
+			if (flags->v)
+				print_stack(stack, cmd);
 			return (1);
 		}
 		i++;
@@ -36,18 +40,17 @@ static int	command_dispatcher(t_stacks *stack, t_commands *clst, char *cmd)
 	return (0);
 }
 
-int			process_instructions(t_stacks *stack, t_commands *clst)
+int			process_instructions(t_stacks *stack, char **commands,
+		t_commands *clst, t_cflags *f)
 {
-	char	*command;
-	int		erno;
+	int		i;
 
-	while ((erno = get_next_line(0, &command)))
+	i = 0;
+	while (commands[i])
 	{
-		if (erno == -1)
+		if (!(command_dispatcher(stack, clst, commands[i], f)))
 			return (0);
-		if (!(command_dispatcher(stack, clst, command)))
-			return (0);
-		ft_memdel((void*)&command);
+		i++;
 	}
 	return (1);
 }

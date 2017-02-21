@@ -6,7 +6,7 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 14:01:22 by kdavis            #+#    #+#              #
-#    Updated: 2017/02/20 15:14:26 by kdavis           ###   ########.fr        #
+#    Updated: 2017/02/20 19:39:56 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ MAKE		=make
 PUSH_SWAP	= main.c execute_command.c calculate_rotations.c max_min.c
 PUSH_SWAP	+= modified_insertion.c rotate_stacks.c
 
-CHECKER		=main.c checker.c process_instructions.c
+CHECKER		=main.c checker.c process_instructions.c print_stacks.c
 
 FILENAMES	=initialize_commands.c swap_commands.c push_commands.c cleanup.c
 FILENAMES	+=rotate_commands.c reverse_rotate_commands.c load_stack.c
-FILENAMES	+=print_stacks.c check_stack.c
+FILENAMES	+=check_stack.c
 
 SRCDIR		= src/
 IDIR		= includes/

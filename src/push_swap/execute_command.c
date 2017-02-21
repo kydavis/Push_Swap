@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 16:22:39 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/20 14:49:41 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/20 19:10:36 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	append_command(t_cmdlst *clst, int command)
 
 	cmnd_len = ft_strlen(clst->cmd[command].name) + 1;
 	if (!(clst->result.arr))
-		if ((ft_initialize_vec(&clst->result, 1, 100, 0)) == FALSE)
+		if ((ft_initialize_vec(&clst->result, 1, BUFF_SIZE, 0)) == FALSE)
 			return (FALSE);
 	if ((ft_grow_vec(&clst->result, clst->result.len + cmnd_len + 1)) == FALSE)
 		return (FALSE);

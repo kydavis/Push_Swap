@@ -6,7 +6,7 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 14:01:22 by kdavis            #+#    #+#              #
-#    Updated: 2017/02/20 21:31:05 by kdavis           ###   ########.fr        #
+#    Updated: 2017/02/26 17:04:02 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ LFLAGS		=-L $(LIB) -lft
 
 CC			=gcc
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re force
 
 all: $(LIB)/$(LIB).a $(BINARY1) $(NAME)
 
@@ -49,8 +49,11 @@ $(NAME): $(PSRC)
 $(BINARY1): $(CSRC)
 	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(CSRC) -o $@
 
-$(LIB)/$(LIB).a:
+$(LIB)/$(LIB).a: force
 	$(MAKE) -C $(LIB)
+
+force:
+	@true
 
 clean:
 	$(MAKE) -C $(LIB) clean

@@ -6,7 +6,7 @@
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:46:08 by kdavis            #+#    #+#             */
-/*   Updated: 2017/02/21 13:36:23 by kdavis           ###   ########.fr       */
+/*   Updated: 2017/02/26 17:26:12 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**load_instructions(void)
 			return (NULL);
 		}
 		ft_memmove((char*)instructions.arr + instructions.len, buffer, ret);
-		instructions.len += BUFF_SIZE;
+		instructions.len += ret;
 	}
 	if (ret == 0)
 		result = ft_strsplit((char*)instructions.arr, '\n');
@@ -54,5 +54,7 @@ int		checker(t_stacks *stack, t_commands *clst, t_cflags *flags)
 	if (!(process_instructions(stack, commands, clst, flags)))
 		return (cleanup(-1, &stack->a, &stack->b, commands));
 	ret = check_stack(&stack->a, 0, A.total - 1, 0);
-	return (cleanup(ret, &stack->a, &stack->b, commands));
+	if (A.len == A.total)
+		return (cleanup(ret, &stack->a, &stack->b, commands));
+	return (cleanup(0, &stack->a, &stack->b, commands));
 }

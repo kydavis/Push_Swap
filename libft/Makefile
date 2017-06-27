@@ -6,13 +6,14 @@
 #    By: kdavis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/21 09:50:14 by kdavis            #+#    #+#              #
-#    Updated: 2017/06/12 18:48:09 by kdavis           ###   ########.fr        #
+#    Updated: 2017/01/25 16:43:39 by kdavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libft.a
 
-SUBDIR			= memory list gnl type str ft_io ft_printf vector
+SUBDIR			= memory list gnl leftovers type str ft_io ft_printf matrix
+SUBDIR			+=vector
 
 MEMORY			=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c
 MEMORY			+=ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c ft_memdup.c
@@ -50,16 +51,23 @@ FT_PRINTF		=ft_asprintf.c ft_printf.c ft_vdprintf.c pf_append_data.c
 FT_PRINTF		+=pf_flag_reader.c pf_nbr_funcs.c ft_dprintf.c ft_vasprintf.c
 FT_PRINTF		+=pf_alloc_ret.c pf_funcarray.c pf_str_funcs.c
 
-VECTOR			=ft_initialize_vec.c ft_grow_vec.c ft_vecapp.c ft_vindex.c
-VECTOR			+= ft_vec_foreach.c
+LEFTOVERS		=ft_new_handle.c
+LEFTOVERS		+=ft_power.c ft_negflag.c 
+LEFTOVERS		+=ft_bitstoa.c ft_putbits.c ft_xorswap.c
+
+MATRIX			=ftmx_id.c ftmx_scale.c ftmx_translate.c ftmx_mult.c
+
+VECTOR			=ft_initialize_vec.c ft_grow_vec.c
 
 FILENAMES		=$(addprefix memory/, $(MEMORY))
 FILENAMES		+=$(addprefix list/, $(LIST))
 FILENAMES		+=$(addprefix gnl/, $(GNL))
 FILENAMES		+=$(addprefix ft_io/, $(FT_IO))
+FILENAMES		+=$(addprefix leftovers/, $(LEFTOVERS))
 FILENAMES		+=$(addprefix type/, $(TYPE))
 FILENAMES		+=$(addprefix str/, $(STR))
 FILENAMES		+=$(addprefix ft_printf/, $(FT_PRINTF))
+FILENAMES		+=$(addprefix matrix/, $(MATRIX))
 FILENAMES		+=$(addprefix vector/, $(VECTOR))
 
 SRC				=$(addprefix src/,$(FILENAMES))

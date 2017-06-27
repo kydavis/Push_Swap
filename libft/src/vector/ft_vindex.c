@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mx_scale.c                                         :+:      :+:    :+:   */
+/*   ft_vindex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 13:41:42 by kdavis            #+#    #+#             */
-/*   Updated: 2017/01/03 13:41:57 by kdavis           ###   ########.fr       */
+/*   Created: 2017/04/04 17:10:19 by kdavis            #+#    #+#             */
+/*   Updated: 2017/04/04 17:17:33 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_matrix.h>
-#include <memory.h>
+#include <ft_vector.h>
 
 /*
-** mx_scale creates a scaling matrix of size len + 1. The inputs are an array
-** of floats that will be used for scaling, and the len of the array.
+** ft_vindex returns the address at the position of the requested index in the
+** array
 */
 
-float	*mx_scale(float *sc, int len)
+void	*ft_vecindex(t_vec *self, size_t idx)
 {
-	float	*temp;
-	int		dim;
-	int		diag;
-	int		i;
-
-	dim = len + 1;
-	if (!(temp = mx_id(dim)))
+	if (idx >= self->len)
 		return (NULL);
-	diag = dim + 1;
-	i = -1;
-	while (++i < len)
-		temp[(diag) * i] = sc[i];
-	return (temp);
+	return (self->arr + (idx * self->size));
 }

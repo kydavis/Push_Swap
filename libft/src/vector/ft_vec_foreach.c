@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_negflag.c                                       :+:      :+:    :+:   */
+/*   ft_vec_foreach.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdavis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 13:10:09 by kdavis            #+#    #+#             */
-/*   Updated: 2016/10/05 13:12:38 by kdavis           ###   ########.fr       */
+/*   Created: 2017/04/04 17:21:45 by kdavis            #+#    #+#             */
+/*   Updated: 2017/04/04 17:30:29 by kdavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft_vector.h>
 
 /*
-** Flags n as negative or not, as well as changes the value from negative n
-** to positive n.
+** ft_vec_foreach takes in a function pointer and applies that function to
+** every element in the array.
 */
 
-void	ft_negflag(int *n, int *negative)
+int	ft_vec_foreach(t_vec *self, int (f)(void*))
 {
-	if (*n < 0)
+	void	*element;
+	size_t	i;
+
+	i = 0;
+	while ((element = ft_vecindex(self, i)))
 	{
-		*negative = 1;
-		*n = -*n;
+		if (!f(element))
+			return (0);
+		i++;
 	}
-	else
-		*negative = 0;
+	return (1);
 }
